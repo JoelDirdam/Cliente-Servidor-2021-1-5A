@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Menu } from 'src/app/interfaces/menu';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  menu: Menu[];
+
+  constructor(servicioMenu: MenuService) { 
+    this.menu = servicioMenu.obtenerMenus();
+  }
 
   ngOnInit(): void {
   }
